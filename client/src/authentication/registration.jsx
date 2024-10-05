@@ -43,7 +43,7 @@ const Registration = () => {
       );
     }
     try {
-      await axios.post("https://test-server-gray-one.vercel.app/", {
+      await axios.post("https://test-server-gray-one.vercel.app", {
         fullName: name,
         email,
         password,

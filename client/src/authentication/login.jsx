@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://test-server-gray-one.vercel.app/",
+        "https://test-server-gray-one.vercel.app",
         {
           email,
           password,
