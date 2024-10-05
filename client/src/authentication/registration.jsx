@@ -4,6 +4,7 @@ import axios from "axios";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; // Import eye icons
 
 const Registration = () => {
+  axios.defaults.withCredentials = true;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +43,7 @@ const Registration = () => {
       );
     }
     try {
-      await axios.post("http://localhost:3001/api/auth/register", {
+      await axios.post("https://test-server-gray-one.vercel.app/", {
         fullName: name,
         email,
         password,
@@ -157,7 +158,10 @@ const Registration = () => {
               )}
             </button>
           </div>
-          <p className=" text-gray-700 pb-5">Password must be 8-14 characters long, and include uppercase letters, lowercase letters, numbers, and special characters</p>
+          <p className=" text-gray-700 pb-5">
+            Password must be 8-14 characters long, and include uppercase
+            letters, lowercase letters, numbers, and special characters
+          </p>
           <div className="flex items-center justify-between">
             <button
               className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"

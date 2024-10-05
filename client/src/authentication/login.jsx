@@ -4,6 +4,7 @@ import axios from "axios";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; // Import eye icons
 
 const Login = () => {
+  axios.defaults.withCredentials = true;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
@@ -13,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/auth/login",
+        "https://test-server-gray-one.vercel.app/",
         {
           email,
           password,
@@ -31,10 +32,15 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          Login
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
               Email Address
             </label>
             <input
@@ -48,7 +54,10 @@ const Login = () => {
             />
           </div>
           <div className="mb-6 relative">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
