@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth.js"); // Import your authentication routes
-const protectedRoutes = require("./routes/protectedRoutes.js");
+const protectedRoutes = require("./routes/protectedRoutes");
 
 const app = express();
 
@@ -13,6 +13,10 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
+app.use("/", (req, res) => {
+  res.send("Server is Running!!!");
+});
 
 // Middleware
 app.use(express.json());
