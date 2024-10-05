@@ -8,6 +8,15 @@ const protectedRoutes = require("./routes/protectedRoutes");
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "https://test-client-livid.vercel.app/",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
