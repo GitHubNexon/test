@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://test-client-livid.vercel.app/",
+    origin: "https://test-client-livid.vercel.app",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
